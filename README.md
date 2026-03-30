@@ -142,6 +142,7 @@ Full `hosts.json` example:
 |-------|-------------|---------|
 | `ignore_https_errors` | Ignore HTTPS certificate errors (usually needed for staging) | `false` |
 | `browser` | Browser type: `chrome` / `msedge` / `firefox` / `webkit` | `chrome` |
+| `proxy_port` | Local proxy port for hosts mapping | `18999` |
 | `extra_args` | Additional arguments passed to Playwright MCP | `[]` |
 
 > **Tip: Use `msedge`** — When system Chrome is running, Playwright's Chrome instance may share its network service process, causing proxy settings to be ignored. Edge runs as a separate process and is not affected.

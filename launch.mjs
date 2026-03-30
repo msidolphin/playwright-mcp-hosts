@@ -24,7 +24,7 @@ const PROJECT_CONFIG_DIR = join(process.cwd(), ".playwright-mcp");
 const PROJECT_CONFIG_PATH = join(PROJECT_CONFIG_DIR, "hosts.json");
 const HOSTS_MAP_PATH = join(GLOBAL_CONFIG_DIR, "_hosts_map.json");
 const PROXY_SCRIPT = join(__dirname, "proxy.mjs");
-const PROXY_PORT = 18999;
+const DEFAULT_PROXY_PORT = 18999;
 
 const DEFAULT_CONFIG = {
   sources: [
@@ -39,6 +39,7 @@ const DEFAULT_CONFIG = {
   ],
   ignore_https_errors: false,
   browser: "chrome",
+  proxy_port: DEFAULT_PROXY_PORT,
   extra_args: [],
 };
 
@@ -130,6 +131,7 @@ async function main() {
   const config = loadConfig();
   const hostsMap = await collectHostsMap(config);
   const extraArgs = config.extra_args || [];
+  const proxyPort = config.proxy_port || DEFAULT_PROXY_PORT;
   const hasHosts = Object.keys(hostsMap).length > 0;
 
   const args = ["@playwright/mcp@latest", "--isolated", ...extraArgs];
@@ -149,13 +151,13 @@ async function main() {
 
     proxyProcess = spawn("node", [PROXY_SCRIPT], {
       stdio: ["ignore", "ignore", "inherit"],
-      env: { ...process.env, PROXY_PORT: String(PROXY_PORT) },
+      env: { ...process.env, PROXY_PORT: String(proxyPort) },
     });
 
     await new Promise((r) => setTimeout(r, 500));
 
-    args.push("--proxy-server", `http://127.0.0.1:${PROXY_PORT}`);
-    process.stderr.write(`[playwright-mcp] Proxy started: http://127.0.0.1:${PROXY_PORT}\n`);
+    args.push("--proxy-server", `http://127.0.0.1:${proxyPort}`);
+    process.stderr.write(`[playwright-mcp] Proxy started: http://127.0.0.1:${proxyPort}\n`);
   } else {
     process.stderr.write("[playwright-mcp] No host rules configured, starting in default mode\n");
   }
