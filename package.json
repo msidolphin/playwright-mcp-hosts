@@ -1,0 +1,31 @@
+{
+  "name": "playwright-mcp-hosts",
+  "version": "1.0.0",
+  "description": "Playwright MCP with custom hosts mapping, like SwitchHosts for browser automation",
+  "type": "module",
+  "bin": {
+    "playwright-mcp-hosts": "./launch.mjs"
+  },
+  "files": [
+    "launch.mjs",
+    "proxy.mjs",
+    "README.md",
+    "README.zh-CN.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "playwright",
+    "mcp",
+    "hosts",
+    "proxy",
+    "browser-automation",
+    "model-context-protocol"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
+}
