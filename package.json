@@ -1,6 +1,6 @@
 {
   "name": "playwright-mcp-hosts",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "Playwright MCP with custom hosts mapping, like SwitchHosts for browser automation",
   "type": "module",
   "repository": {
