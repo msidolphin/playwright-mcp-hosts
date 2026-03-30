@@ -1,8 +1,13 @@
 {
   "name": "playwright-mcp-hosts",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "Playwright MCP with custom hosts mapping, like SwitchHosts for browser automation",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wps-inc/playwright-mcp-hosts.git"
+  },
+  "homepage": "https://github.com/wps-inc/playwright-mcp-hosts.git",
   "bin": {
     "playwright-mcp-hosts": "./launch.mjs"
   },
@@ -23,9 +28,5 @@
     "browser-automation",
     "model-context-protocol"
   ],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": ""
-  }
+  "license": "MIT"
 }
