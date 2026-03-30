@@ -5,9 +5,9 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wps-inc/playwright-mcp-hosts.git"
+    "url": "https://github.com/msidolphin/playwright-mcp-hosts.git"
   },
-  "homepage": "https://github.com/wps-inc/playwright-mcp-hosts.git",
+  "homepage": "https://github.com/msidolphin/playwright-mcp-hosts.git",
   "bin": {
     "playwright-mcp-hosts": "./launch.mjs"
   },
