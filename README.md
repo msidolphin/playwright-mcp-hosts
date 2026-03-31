@@ -180,13 +180,3 @@ Remote URLs should return content in standard hosts file format:
 10.0.0.1  api.example.com
 10.0.0.2  internal.example.com
 ```
-
-## Known Issues
-
-### Chromium `--host-resolver-rules` Not Working
-
-On Chromium 146+, even when `--host-resolver-rules` is correctly passed to both the browser and network service processes, DNS overrides may not take effect. This is likely related to changes in Chromium's DNS resolution on macOS. This tool bypasses the browser's DNS resolution entirely by redirecting connections at the TCP level via a CONNECT proxy.
-
-### Chrome Network Service Process Sharing
-
-When system Chrome is already running, Playwright's Chrome instance may share the network service process (`network.mojom.NetworkService`), causing `--proxy-server` and other network-related flags to be ignored. Using `msedge` as the browser avoids this issue.
