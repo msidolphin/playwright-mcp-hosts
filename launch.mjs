@@ -165,6 +165,7 @@ async function main() {
   const child = spawn("npx", args, {
     stdio: ["inherit", "inherit", "inherit"],
     env: process.env,
+    shell: process.platform === "win32",
   });
 
   const cleanup = () => {
